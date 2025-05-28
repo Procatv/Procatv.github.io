@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Welcome! </title>
 
 <body style="background-color:rgb(248, 248, 248);">
 
@@ -35,11 +35,16 @@
             color: black;
         }
 
+        .title {
+            padding: 5px 30px 0;
+
+        }
+
         .profile {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 30px 20px;
+            padding: 5px 20px;
         }
 
         .profile img {
@@ -52,6 +57,83 @@
 
         .profile-text {
             max-width: 400px;
+        }
+
+
+        .skills {
+            max-width: 250px;
+            max-height: 20px;
+            padding-left: 40px;
+            padding-top: 20px;
+
+        }
+
+        .titlexp {
+            padding-left: 20px;
+            padding-top: 40px;
+        }
+
+        .projects {
+            padding-left: 20px;
+            padding-top: 30px;
+        }
+
+        .projContent {
+            padding-left: 40px;
+        }
+
+        .exp {
+            padding-left: 40px;
+        }
+
+        .contitle {
+            padding-left: 75px;
+            padding-top: 10px;
+        }
+
+        .contact {
+            margin-left: 80px;
+        }
+
+
+        .contact table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .contact th {
+            text-align: left;
+            background-color: #f2f2f2;
+            padding: 8px;
+        }
+
+        .contact td {
+            padding: 8px;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 2px;
+            font-family: inherit;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .contact button:hover {
+            background-color: #45a049;
         }
     </style>
     </head>
@@ -70,6 +152,11 @@
         </nav>
     </header>
     <hr>
+    <div class="title">
+        <h2> About Me</h2>
+    </div>
+    <!-- About Me Section -->
+
     <div class="profile">
         <img src="docs/headshot.JPG" alt="Headshot Photo" />
         <div class="profile-text">
@@ -79,6 +166,67 @@
                 Welcome to my portfolio website!
             </p>
         </div>
+    </div>
+
+    <!-- Resume In Detail + images -->
+    <!-- Need to add more detail-->
+    <div class="projects">
+        <h2> Projects</h2>
+    </div>
+    <div class="projContent">
+        <p> Website </p>
+        <p> Website </p>
+        <p> Website </p>
+        <p> Website </p>
+    </div>
+    <div class="titlexp">
+        <h2> Experiences</h2>
+    </div>
+    <div class="exp">
+        <h3> IBM Research</h3>
+        <p> Qiski Backend Software Developer </p>
+        <h3> IBM Research </h3>
+        <p> Qiski Backend Software Developer </p>
+        <h3> JPL </h3>
+        <p> Project Support Office Software Developer </p>
+        <h3> Quantum Foundry UCSB </h3>
+        <p> Software Developer </p>
+        <h3> Foley & Lardner LLP </h3>
+        <p> Adminstrative Assistant </p>
+    </div>
+    <!-- Contact Me Section -->
+    <!-- Need to connect to api -->
+    <div class="contitle">
+        <h2>Contact</h2>
+    </div>
+    <div class="contact" id="contact">
+        <form>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="name" placeholder="Your Name" required></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="email" placeholder="you@example.com" required></td>
+                </tr>
+                <tr>
+                    <th>Subject</th>
+                    <td><input type="text" name="subject" placeholder="Subject" required></td>
+                </tr>
+                <tr>
+                    <th>Message</th>
+                    <td><textarea name="message" rows="5" cols="30" placeholder="Your message here..."
+                            required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Send</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 
 </body>
