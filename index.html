@@ -5,10 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
 
-<body>
-    <h1>Welcome to My Page</h1>
+<body style="background-color:rgb(248, 248, 248);">
+
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    </style>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, sans-serif;
+            color: black;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 20px;
+        }
+
+        .profile img {
+            height: 200px;
+            width: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            padding: 5px 40px 0 50px
+        }
+
+        .profile-text {
+            max-width: 400px;
+        }
+    </style>
+    </head>
+
+    <body></body>
+    <!-- Header Section -->
+    <header>
+        <h1>Hi there!</h1>
+        <nav>
+            <ul>
+                <!-- Clicking this should navigate on the same page-->
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <div class="profile">
+        <img src="/headshot.jpg" alt="Headshot Photo" />
+        <div class="profile-text">
+            <h2>I'm Catherine Lozano</h2>
+            <p>
+                I'm a Computer Science student passionate about backend development and software engineering.
+                Welcome to my portfolio website!
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>
