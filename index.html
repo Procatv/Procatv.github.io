@@ -18,6 +18,21 @@
             font-display: swap;
         }
 
+        @font-face {
+            font-family: "nice";
+            src: url("docs/assets/fonts/Pixel_NES.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "double";
+            src: url("docs/assets/fonts/Web437_NEC_APC3_8x16.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
 
 
         html {
@@ -193,7 +208,7 @@
 
         .main p {
             font-size: 18px;
-            font-family: "monospace";
+            font-family: "double";
 
             /* pick the size you want */
         }
@@ -260,7 +275,7 @@
         }
 
         .blog {
-            font-family: monospace;
+            font-family: "double";
             padding-left: 20px;
             padding-top: 5px;
             padding-bottom: 20px;
@@ -274,7 +289,7 @@
         }
 
         .project-list {
-            font-family: monospace;
+            font-family: "double";
             /* no bullets */
             margin: 0;
             padding: 0;
@@ -296,7 +311,7 @@
             /* position */
             position: absolute;
             /* or fixed if you want it to stay on scroll   */
-            top: 36rem;
+            top: 34rem;
             /* start 3 rem from the top                    */
             right: 30rem;
             /* and 2 rem in from the right edge            */
@@ -333,6 +348,7 @@
         }
 
         .expBox {
+            font-family: "double";
             max-width: 1000px;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
@@ -350,73 +366,13 @@
             margin: 0 auto;
         }
 
-        .contitle {
-            padding-top: 10px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
 
-        .contact {
-            margin-left: 70px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-
-        .contact table {
-            margin-top: 10px;
-            margin-bottom: 100px;
-            width: 100%;
-            color: white;
-            border-color: rgb(42, 40, 40);
-            box-shadow: 0 0 6px #fff;
-            border-style: solid;
-            border-width: 2px;
-        }
-
-        .contact th {
-            text-align: center;
-            color: white;
-            padding: 8px;
-            border: 1px solid rgb(42, 40, 40);
-        }
-
-        .contact td {
-            padding: 8px;
-            border: 1px solid rgb(42, 40, 40);
-        }
-
-
-        .contact input,
-        .contact textarea {
-            width: 90%;
-            padding: 2px;
-            font-family: inherit;
-            font-size: 1em;
-            border: 1px solid rgb(42, 40, 40);
-            border-radius: 4px;
-        }
-
-        .contact button {
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: rgb(14, 32, 92);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .contact button:hover {
-            background-color: rgb(42, 40, 40);
-            ;
-        }
 
         /* all <h2> across the site */
         h2 {
             font-family: "perfect", monospace;
             /* keep your custom font */
-            font-size: 18px;
+            font-size: 28px;
             letter-spacing: 2px;
             /* 
             ← space between letters */
@@ -569,42 +525,6 @@
 
     </div>
 
-
-
-    <!-- Contact Me Section -->
-    <!-- Need to connect to api -->
-    <div class="contitle">
-        <h2>Contact</h2>
-    </div>
-    <div class="contact" id="contact">
-        <form>
-            <table border="1" cellpadding="10" cellspacing="0">
-                <tr>
-                    <th>Name</th>
-                    <td><input type="text" name="name" placeholder="Your Name" required></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td><input type="email" name="email" placeholder="you@example.com" required></td>
-                </tr>
-                <tr>
-                    <th>Subject</th>
-                    <td><input type="text" name="subject" placeholder="Subject" required></td>
-                </tr>
-                <tr>
-                    <th>Message</th>
-                    <td><textarea name="message" rows="5" cols="30" placeholder="Your message here..."
-                            required></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <button type="submit">Send</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
 </body>
 
 </html>
