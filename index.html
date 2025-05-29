@@ -228,7 +228,7 @@
         .profile img {
             height: 200px;
             width: 160px;
-            /* border-radius: 40%; */
+            border-radius: 0%;
             object-fit: cover;
             padding-bottom: 40px;
             padding-right: 20px;
@@ -284,6 +284,28 @@
             margin-bottom: .8rem;
             margin-left: 40px;
             /* space between items */
+        }
+
+        .dance-gif {
+            /* size */
+            width: 50px;
+            /* shrink as needed */
+            height: auto;
+            /* keep aspect-ratio */
+
+            /* position */
+            position: absolute;
+            /* or fixed if you want it to stay on scroll   */
+            top: 36rem;
+            /* start 3 rem from the top                    */
+            right: 30rem;
+            /* and 2 rem in from the right edge            */
+
+            /* polish */
+            pointer-events: none;
+            /* lets clicks pass through to links below     */
+            z-index: 50;
+            /* rides above background but under menus      */
         }
 
         .projBox {
@@ -481,6 +503,8 @@
                 </ul>
             </div>
         </div>
+
+        <img src="docs/dance.gif" alt="pixel dance animation" class="dance-gif">
 
     </div>
 
