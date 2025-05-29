@@ -6,19 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Welcome! </title>
 
-<body style="background-color:rgb(248, 248, 248);">
 
     <style>
+        .main,
+        .skills,
+        .blog,
+        .projBox,
+        .projContent,
+        .expBox,
+        .exp,
+        .contact,
+        .projects {
+            background-color: black;
+            color: white;
+        }
+
         body {
             font-family: Verdana, Geneva, sans-serif;
+            background-image: url('docs/bb.jpg');
+            background-size: 1930px auto;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-attachment: fixed;
+            color: white;
         }
-    </style>
-    <style>
+
+        .logo {
+            margin: 0 auto;
+        }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 1px 30px;
         }
 
         nav ul {
@@ -32,19 +53,37 @@
         nav a {
             text-decoration: none;
             font-family: Verdana, Geneva, sans-serif;
-            color: black;
+            color: white;
+        }
+
+        .main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0px;
+            padding-top: 10px;
+            border: 2px solid black;
+            box-sizing: border-box;
         }
 
         .title {
-            padding: 5px 30px 0;
+            text-align: center;
+            padding-right: 750px;
+        }
 
+        .About {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 25px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .profile {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 5px 20px;
         }
 
         .profile img {
@@ -52,80 +91,132 @@
             width: 160px;
             border-radius: 50%;
             object-fit: cover;
-            padding: 5px 40px 0 50px
         }
 
         .profile-text {
             max-width: 400px;
         }
 
-
         .skills {
             max-width: 250px;
-            max-height: 20px;
-            padding-left: 40px;
-            padding-top: 20px;
-
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
         }
+
 
         .titlexp {
             padding-left: 20px;
-            padding-top: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .fun {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .blog {
+            padding-left: 20px;
+            padding-top: 5px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            box-sizing: border-box;
+        }
+
+        .projBox {
+            max-width: 1000px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            box-sizing: border-box;
+            margin: 30px auto;
+
         }
 
         .projects {
             padding-left: 20px;
-            padding-top: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .projContent {
             padding-left: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .expBox {
+            max-width: 1000px;
+            box-sizing: border-box;
+            border-style: solid;
+            border-width: 2px;
+            border-color: black;
+            margin: 0 auto;
+
         }
 
         .exp {
             padding-left: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .contitle {
-            padding-left: 75px;
             padding-top: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .contact {
-            margin-left: 80px;
+            margin-left: 70px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
 
         .contact table {
-            border-collapse: collapse;
             margin-top: 10px;
-            width: 80%;
+            margin-bottom: 100px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            border: 2px solid purple;
         }
 
         .contact th {
-            text-align: left;
-            background-color: #f2f2f2;
+            text-align: center;
+            background-color: black;
+            color: white;
             padding: 8px;
+            border: 1px solid purple;
         }
 
         .contact td {
             padding: 8px;
+            color: white;
+            background-color: black;
+            border: 1px solid purple;
         }
+
 
         .contact input,
         .contact textarea {
-            width: 100%;
+            width: 90%;
             padding: 2px;
             font-family: inherit;
             font-size: 1em;
-            border: 1px solid #ccc;
+            border: 1px solid purple;
             border-radius: 4px;
         }
 
         .contact button {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: #4CAF50;
+            background-color: purple;
             color: white;
             border: none;
             border-radius: 6px;
@@ -133,15 +224,15 @@
         }
 
         .contact button:hover {
-            background-color: #45a049;
+            background-color: blue;
         }
     </style>
-    </head>
+</head>
 
-    <body></body>
+<body>
     <!-- Header Section -->
     <header>
-        <h1>Hi there!</h1>
+        <!-- <h1>Hi there!</h1> -->
         <nav>
             <ul>
                 <!-- Clicking this should navigate on the same page-->
@@ -152,48 +243,94 @@
         </nav>
     </header>
     <hr>
-    <div class="title">
-        <h2> About Me</h2>
-    </div>
-    <!-- About Me Section -->
 
-    <div class="profile">
-        <img src="docs/headshot.JPG" alt="Headshot Photo" />
-        <div class="profile-text">
-            <h2>I'm Catherine Lozano</h2>
-            <p>
-                I'm a Computer Science student passionate about backend development and software engineering.
-                Welcome to my portfolio website!
-            </p>
+    <!-- About Me Section -->
+    <!-- About Me Title -->
+    <header>
+        <div class="logo">
+            <p> Catherine Lozano </p>
         </div>
+    </header>
+    <div class="main box">
+        <div class="title">
+            <h2>About Me</h2>
+        </div>
+        <!-- Flex container for profile and skills -->
+        <div class="About">
+            <div class="profile">
+                <img src="docs/headshot.JPG" alt="Headshot Photo" />
+                <div class="profile-text">
+                    <h2>I'm Catherine Lozano</h2>
+                    <p>
+                        I'm a Computer Science student passionate about backend development and software
+                        engineering.
+                        Welcome to my portfolio website!
+                    </p>
+                    <h2> Fun Facts </h2>
+                    <p> I love sports </p>
+
+                </div>
+
+
+            </div>
+
+            <div class="skills">
+                <p><strong>Technical Skills:</strong></p>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>Rust</li>
+                    <li>C++</li>
+                    <li>Git</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="blog">
+        <h2> Blog </h2>
+        <p> Post #1 </p>
     </div>
 
     <!-- Resume In Detail + images -->
     <!-- Need to add more detail-->
-    <div class="projects">
-        <h2> Projects</h2>
+
+    <div class="projBox">
+        <div class="projects">
+            <h2> Projects</h2>
+        </div>
+
+        <div class="projContent">
+            <p> Website </p>
+            <p> Website </p>
+            <p> Website </p>
+            <p> Website </p>
+        </div>
+
     </div>
-    <div class="projContent">
-        <p> Website </p>
-        <p> Website </p>
-        <p> Website </p>
-        <p> Website </p>
+
+    <div class="expBox">
+        <div class="titlexp">
+            <h2> Experiences</h2>
+        </div>
+
+        <div class="exp">
+            <h3> IBM Research</h3>
+            <p> Qiski Backend Software Developer </p>
+            <h3> IBM Research </h3>
+            <p> Qiski Backend Software Developer </p>
+            <h3> JPL </h3>
+            <p> Project Support Office Software Developer </p>
+            <h3> Quantum Foundry UCSB </h3>
+            <p> Software Developer </p>
+            <h3> Foley & Lardner LLP </h3>
+            <p> Adminstrative Assistant </p>
+        </div>
     </div>
-    <div class="titlexp">
-        <h2> Experiences</h2>
-    </div>
-    <div class="exp">
-        <h3> IBM Research</h3>
-        <p> Qiski Backend Software Developer </p>
-        <h3> IBM Research </h3>
-        <p> Qiski Backend Software Developer </p>
-        <h3> JPL </h3>
-        <p> Project Support Office Software Developer </p>
-        <h3> Quantum Foundry UCSB </h3>
-        <p> Software Developer </p>
-        <h3> Foley & Lardner LLP </h3>
-        <p> Adminstrative Assistant </p>
-    </div>
+
+
+
     <!-- Contact Me Section -->
     <!-- Need to connect to api -->
     <div class="contitle">
@@ -228,7 +365,6 @@
             </table>
         </form>
     </div>
-
 </body>
 
 </html>
