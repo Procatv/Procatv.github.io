@@ -9,6 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 
     <style>
+        @font-face {
+            font-family: "ThinPixel7";
+            src: url("docs/assets/fonts/ThinPixel-7.woff2") format("woff2"),
+                url("docs/assets/fonts/ThinPixel-7.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+
         html {
             background: #000;
             scroll-behavior: smooth;
@@ -44,23 +55,23 @@
             font-family: "Pixelify Sans", monospace;
             font-size: 100px;
             margin: 0 auto;
-            color: #7967ff;
+            color: #ff07dac4;
             /* inner fill */
 
             /* solid 2-px outline */
-            -webkit-text-stroke: 2px #3035cd;
+            /* -webkit-text-stroke: 2px #3035cd; */
 
             /* --- SHADOW STACK --- */
             text-shadow:
                 /* hard offset shadow (keeps pixel-art look) */
-                4px 4px 0 #0644ffce,
+                4px 4px 0 #7c0771ce,
 
                 /* glow layers – same hue, larger blur */
-                0 0 6px #6979ff,
+                0 0 6px #e969ff,
                 /* near glow  */
-                0 0 12px #6988ff,
+                0 0 12px #dd7ef3,
                 /* mid glow   */
-                0 0 18px #69a0ff;
+                0 0 18px #ebaedd;
             /* far glow   */
 
             letter-spacing: 3px;
@@ -71,9 +82,6 @@
             margin: 0;
         }
 
-
-
-
         .main,
         .blog,
         .projBox,
@@ -82,9 +90,6 @@
             background-color: rgba(0, 0, 0, 0.813);
             color: white;
         }
-
-
-
 
         header {
             display: flex;
@@ -157,9 +162,27 @@
             /* soft halo */
         }
 
+        /* 2️⃣  blurred star-field layer */
+        .main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            /* cover the whole box            */
+            background: url('docs/stars.gif') center / cover repeat;
+            filter: blur(6px);
+            /* adjust blur radius to taste    */
+            transform: scale(1.05);
+            /* hides the dark edges of blur   */
+            z-index: -1;
+            /* sit underneath the text        */
+            pointer-events: none;
+            /* clicks pass through            */
+        }
+
         .main {
             width: 90%;
             max-width: 1000px;
+            /* font-family: ThinPixel7; */
             margin: 30px auto;
             padding: 0px;
             padding-top: 0px;
@@ -170,9 +193,19 @@
             box-sizing: border-box;
         }
 
+        /* make every paragraph in .main bigger */
+        /* .main p {
+            font-size: 18px;
+            /* pick the size you want */
+        /* } */
+
+        /* or—if you only want the card headings larger */
+        /* .main h2 {
+            font-size: 32px;
+        } */
         .title {
             text-align: center;
-            padding-right: 750px;
+            padding-right: 720px;
         }
 
         .About {
