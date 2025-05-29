@@ -4,36 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Welcome! </title>
+    <title> Procatv </title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 
     <style>
-        .main,
-        .skills,
-        .blog,
-        .projBox,
-        .projContent,
-        .expBox,
-        .exp,
-        .contact,
-        .projects {
-            background-color: black;
-            color: white;
+        html {
+            background: #000;
+            scroll-behavior: smooth;
         }
 
+        /* 2️⃣  content styling */
         body {
             font-family: Verdana, Geneva, sans-serif;
-            background-image: url('docs/bb.jpg');
-            background-size: 1930px auto;
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-attachment: fixed;
-            color: white;
+            color: #fff;
+            position: relative;
+            /* required for layering */
+            overflow-x: hidden;
+            /* avoids horizontal scroll caused by the blurred edge */
+        }
+
+        /* 3️⃣  blurred background layer */
+        body::before {
+            content: "";
+            position: fixed;
+            /* full-viewport, stays put while scrolling   */
+            inset: 0;
+            /* shorthand for top:0; right:0; bottom:0; left:0 */
+            background: url('docs/bb.jpg') center top / 1930px auto no-repeat fixed;
+            filter: blur(6px);
+            /* adjust radius to taste                    */
+            z-index: -1;
+            /* put it *under* everything else            */
+            transform: scale(1.05);
+            /* hides the blur’s darker edges at sides    */
         }
 
         .logo {
+            font-family: "Pixelify Sans", monospace;
+            font-size: 100px;
             margin: 0 auto;
+            color: #7967ff;
+            /* inner fill */
+
+            /* solid 2-px outline */
+            -webkit-text-stroke: 2px #3035cd;
+
+            /* --- SHADOW STACK --- */
+            text-shadow:
+                /* hard offset shadow (keeps pixel-art look) */
+                4px 4px 0 #0644ffce,
+
+                /* glow layers – same hue, larger blur */
+                0 0 6px #6979ff,
+                /* near glow  */
+                0 0 12px #6988ff,
+                /* mid glow   */
+                0 0 18px #69a0ff;
+            /* far glow   */
+
+            letter-spacing: 3px;
+            user-select: none;
         }
+
+        .logo p {
+            margin: 0;
+        }
+
+
+
+
+        .main,
+        .blog,
+        .projBox,
+        .expBox,
+        .contact {
+            background-color: rgba(0, 0, 0, 0.813);
+            color: white;
+        }
+
+
+
 
         header {
             display: flex;
@@ -44,8 +95,8 @@
 
         nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
+            margin-bottom: 2px;
+            padding-left: 2px;
             display: flex;
             gap: 20px;
         }
@@ -56,13 +107,66 @@
             color: white;
         }
 
+        /* CSS */
+
+        /* 1 — Solid bar */
+        .divider {
+            border: none;
+            /* remove the default 3-D border */
+            height: 2px;
+            /* line thickness */
+            background: #ffffff;
+            /* line colour (white) */
+            margin: 30px auto;
+            /* space above/below; auto centers if width <100% */
+            width: 80%;
+            /* length of the line */
+        }
+
+        /* 2 — Dashed or dotted */
+        .divider.dashed {
+            border-top: 2px dashed #888;
+        }
+
+        .divider.dotted {
+            border-top: 2px dotted #888;
+        }
+
+        /* 3 — Gradient fade-out */
+        .divider.fade {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #fff, transparent);
+        }
+
+        /* 4 — Double line */
+        .divider.double {
+            border: none;
+            height: 0;
+            /* let the borders create the lines */
+            border-top: 3px double #fff;
+        }
+
+        /* 5 — Glow / shadow on dark background */
+        .divider.glow {
+            border: none;
+            height: 1px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 0 6px #fff;
+            /* soft halo */
+        }
+
         .main {
             width: 90%;
             max-width: 1000px;
             margin: 30px auto;
             padding: 0px;
-            padding-top: 10px;
-            border: 2px solid black;
+            padding-top: 0px;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
+            border-style: solid;
+            border-width: 2px;
             box-sizing: border-box;
         }
 
@@ -75,7 +179,7 @@
             display: flex;
             align-items: flex-start;
             gap: 40px;
-            padding: 25px 50px;
+            padding: 0px 50px 25px 50px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -99,7 +203,6 @@
 
         .skills {
             max-width: 250px;
-            background-color: black;
             padding: 20px;
             border-radius: 10px;
         }
@@ -119,19 +222,35 @@
         .blog {
             padding-left: 20px;
             padding-top: 5px;
+            padding-bottom: 20px;
             max-width: 1000px;
             margin: 0 auto;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
             border-style: solid;
-            border-color: black;
             border-width: 2px;
             box-sizing: border-box;
         }
 
+        .project-list {
+            /* no bullets */
+            margin: 0;
+            padding: 0;
+        }
+
+        .project-list li {
+            margin-bottom: .8rem;
+            margin-left: 40px;
+            /* space between items */
+        }
+
         .projBox {
             max-width: 1000px;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
             border-style: solid;
-            border-color: black;
             border-width: 2px;
+            padding-bottom: 20px;
             box-sizing: border-box;
             margin: 30px auto;
 
@@ -151,10 +270,11 @@
 
         .expBox {
             max-width: 1000px;
-            box-sizing: border-box;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
             border-style: solid;
             border-width: 2px;
-            border-color: black;
+            box-sizing: border-box;
             margin: 0 auto;
 
         }
@@ -162,6 +282,7 @@
         .exp {
             padding-left: 40px;
             max-width: 1000px;
+            padding-bottom: 20px;
             margin: 0 auto;
         }
 
@@ -182,24 +303,23 @@
             margin-top: 10px;
             margin-bottom: 100px;
             width: 100%;
-            background-color: black;
             color: white;
-            border: 2px solid purple;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
+            border-style: solid;
+            border-width: 2px;
         }
 
         .contact th {
             text-align: center;
-            background-color: black;
             color: white;
             padding: 8px;
-            border: 1px solid purple;
+            border: 1px solid rgb(42, 40, 40);
         }
 
         .contact td {
             padding: 8px;
-            color: white;
-            background-color: black;
-            border: 1px solid purple;
+            border: 1px solid rgb(42, 40, 40);
         }
 
 
@@ -209,14 +329,14 @@
             padding: 2px;
             font-family: inherit;
             font-size: 1em;
-            border: 1px solid purple;
+            border: 1px solid rgb(42, 40, 40);
             border-radius: 4px;
         }
 
         .contact button {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: purple;
+            background-color: rgb(14, 32, 92);
             color: white;
             border: none;
             border-radius: 6px;
@@ -224,7 +344,8 @@
         }
 
         .contact button:hover {
-            background-color: blue;
+            background-color: rgb(42, 40, 40);
+            ;
         }
     </style>
 </head>
@@ -236,19 +357,20 @@
         <nav>
             <ul>
                 <!-- Clicking this should navigate on the same page-->
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#expBox">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <hr>
+    <!-- HTML -->
+    <hr class="divider glow">
+
 
     <!-- About Me Section -->
     <!-- About Me Title -->
     <header>
         <div class="logo">
-            <p> Catherine Lozano </p>
+            <p> Procatv </p>
         </div>
     </header>
     <div class="main box">
@@ -302,31 +424,51 @@
         </div>
 
         <div class="projContent">
-            <p> Website </p>
-            <p> Website </p>
-            <p> Website </p>
-            <p> Website </p>
+            <ul class="project-list">
+                <li>Website</li>
+                <li>Website</li>
+                <li>Website</li>
+                <li>Website</li>
+            </ul>
         </div>
+
 
     </div>
 
-    <div class="expBox">
+    <div class="expBox" id="expBox">
         <div class="titlexp">
             <h2> Experiences</h2>
         </div>
 
         <div class="exp">
-            <h3> IBM Research</h3>
-            <p> Qiski Backend Software Developer </p>
-            <h3> IBM Research </h3>
-            <p> Qiski Backend Software Developer </p>
-            <h3> JPL </h3>
-            <p> Project Support Office Software Developer </p>
-            <h3> Quantum Foundry UCSB </h3>
-            <p> Software Developer </p>
-            <h3> Foley & Lardner LLP </h3>
-            <p> Adminstrative Assistant </p>
+            <ul class="job-list">
+                <li>
+                    <h3>IBM Research</h3>
+                    <p>Qiskit Backend Software Developer</p>
+                </li>
+
+                <li>
+                    <h3>IBM Research</h3>
+                    <p>Qiskit Backend Software Developer</p>
+                </li>
+
+                <li>
+                    <h3>JPL</h3>
+                    <p>Project Support Office Software Developer</p>
+                </li>
+
+                <li>
+                    <h3>Quantum Foundry UCSB</h3>
+                    <p>Software Developer</p>
+                </li>
+
+                <li>
+                    <h3>Foley &amp; Lardner LLP</h3>
+                    <p>Administrative Assistant</p>
+                </li>
+            </ul>
         </div>
+
     </div>
 
 
