@@ -9,6 +9,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 
     <style>
+        /* ─────────────────────────────────────────
+   📱  Phones & small tablets  (≤ 768 px)
+   ───────────────────────────────────────── */
+        @media (max-width: 768px) {
+
+            /* 1.  Global text sizes scale down a bit */
+            body {
+                font-size: 90%;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            /* 2.  Logo shrinks & recenters */
+            .logo {
+                font-size: 14vw;
+                text-align: center;
+            }
+
+            /* 3.  Header becomes a vertical stack */
+            header {
+                flex-direction: column;
+                gap: .5rem;
+                padding: 8px 14px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .quick-links {
+                justify-content: center;
+            }
+
+            /* 4.  Main cards hug the edges and lose *exact* widths */
+            .main,
+            .blog,
+            .projBox,
+            .expBox {
+                width: 95%;
+                max-width: none;
+                margin: 20px auto;
+            }
+
+            /* 5.  “About” section stacks instead of left→right */
+            .About {
+                flex-direction: column;
+                padding: 0 16px 24px;
+            }
+
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile img {
+                width: 60vw;
+                max-width: 240px;
+                height: auto;
+                padding: 0;
+            }
+
+            /* 6.  Skills box goes full-width under the profile */
+            .skills {
+                margin: 20px auto 0;
+                max-width: none;
+            }
+
+            /* 7.  Lists get breathing room */
+            .project-list,
+            .job-list {
+                margin-left: 1.2rem;
+            }
+
+            /* 8.  Remove absolute-positioned GIF that overflows */
+            .dance-gif {
+                display: none;
+            }
+
+            /* or reduce & pin to bottom-right */
+        }
+
+        /* ─────────────────────────────────────────
+ 📱  Extra-small phones  (≤ 480 px)
+ ───────────────────────────────────────── */
+        @media (max-width: 480px) {
+
+            /* Even gentler font sizes */
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            /* Logo a hair smaller so it never wraps */
+            .logo {
+                font-size: 18vw;
+            }
+
+            /* Icons—keep them tappable but not huge */
+            .quick-links img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
         @font-face {
             font-family: "perfect";
             src: url("docs/assets/fonts/Minecraft.woff2") format("woff2"),
@@ -458,7 +573,7 @@
             </div>
         </div>
 
-        <img src="docs/dance.gif" alt="pixel dance animation" class="dance-gif">
+        <!-- <img src="docs/dance.gif" alt="pixel dance animation" class="dance-gif"> -->
 
     </div>
 
