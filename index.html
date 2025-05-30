@@ -12,122 +12,12 @@
         /* ─────────────────────────────────────────
    📱  Phones & small tablets  (≤ 768 px)
    ───────────────────────────────────────── */
-        @media (max-width: 768px) {
 
-            /* 1.  Global text sizes scale down a bit */
-            body {
-                font-size: 90%;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            h3 {
-                font-size: 18px;
-            }
-
-            /* 2.  Logo shrinks & recenters */
-            .logo {
-                font-size: 14vw;
-                text-align: center;
-            }
-
-            /* 3.  Header becomes a vertical stack */
-            header {
-                flex-direction: column;
-                gap: .5rem;
-                padding: 8px 14px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 14px;
-            }
-
-            .quick-links {
-                justify-content: center;
-            }
-
-            /* 4.  Main cards hug the edges and lose *exact* widths */
-            .main,
-            .blog,
-            .projBox,
-            .expBox {
-                width: 95%;
-                max-width: none;
-                margin: 20px auto;
-            }
-
-            /* 5.  “About” section stacks instead of left→right */
-            .About {
-                flex-direction: column;
-                padding: 0 16px 24px;
-            }
-
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile img {
-                width: 60vw;
-                max-width: 240px;
-                height: auto;
-                padding: 0;
-            }
-
-            /* 6.  Skills box goes full-width under the profile */
-            /* .skills {
-                margin: 20px auto 0;
-                max-width: none;
-                font-family: "double";
-            } */
-            /* 
-            .skills ul {
-                font-family: "double";
-            } */
-
-            /* 7.  Lists get breathing room */
-            .project-list,
-            .job-list {
-                margin-left: 1.2rem;
-            }
-
-            /* 8.  Remove absolute-positioned GIF that overflows */
-            .dance-gif {
-                display: none;
-            }
-
-            /* or reduce & pin to bottom-right */
-        }
 
         /* ─────────────────────────────────────────
  📱  Extra-small phones  (≤ 480 px)
  ───────────────────────────────────────── */
-        @media (max-width: 480px) {
 
-            /* Even gentler font sizes */
-            h2 {
-                font-size: 20px;
-            }
-
-            h3 {
-                font-size: 16px;
-            }
-
-            /* Logo a hair smaller so it never wraps */
-            .logo {
-                font-size: 18vw;
-            }
-
-            /* Icons—keep them tappable but not huge */
-            .quick-links img {
-                width: 20px;
-                height: 20px;
-            }
-        }
 
         @font-face {
             font-family: "perfect";
@@ -169,6 +59,16 @@
             overflow-x: hidden;
             /* avoids horizontal scroll caused by the blurred edge */
         }
+
+        /* keep the whole layout at least 1200 px wide */
+        html,
+        body {
+            min-width: 1200px;
+            /* pick the width your design looks good at */
+            /* overflow-x: auto; */
+            /* let users scroll sideways if their screen is narrower */
+        }
+
 
         /* 3️⃣  blurred background layer */
         body::before {
