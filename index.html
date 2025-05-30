@@ -330,12 +330,12 @@
         }
 
         .side.box {
-            flex: 0 0 160px;
+            width: 144px;
             margin-top: 20px;
             font-family: "double";
             font-size: 20px;
             text-align: left;
-            height: 370px;
+            height: 365px;
             background-color: #000000db;
             /* 0 grow | 0 shrink | 160 px basis  */
             /* or simply: width:160px;            */
@@ -349,7 +349,6 @@
             box-shadow: 0 0 6px #fff;
             border-style: solid;
             border-width: 2px;
-            box-sizing: border-box;
         }
 
         /* unchanged centering row */
@@ -357,7 +356,9 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            margin-inline: auto;
+            /* margin-inline: auto; */
+            margin-left: 203px;
+            width: 1200px;
             max-width: 1200px;
         }
 
