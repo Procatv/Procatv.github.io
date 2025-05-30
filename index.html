@@ -73,17 +73,18 @@
         /* 3️⃣  blurred background layer */
         body::before {
             content: "";
-            position: fixed;
-            /* full-viewport, stays put while scrolling   */
+            position: absolute;
             inset: 0;
-            /* shorthand for top:0; right:0; bottom:0; left:0 */
-            background: url('docs/bb.jpg') center top / 1930px auto no-repeat fixed;
+            /* cover the whole box            */
+            background: url('docs/stars.gif') center / cover repeat;
             filter: blur(6px);
-            /* adjust radius to taste                    */
-            z-index: -1;
-            /* put it *under* everything else            */
+            /* adjust blur radius to taste    */
             transform: scale(1.05);
-            /* hides the blur’s darker edges at sides    */
+            /* hides the dark edges of blur   */
+            z-index: -1;
+            /* sit underneath the text        */
+            pointer-events: none;
+            /* clicks pass through            */
         }
 
         .logo {
@@ -195,28 +196,10 @@
         }
 
         /* 2️⃣  blurred star-field layer */
-        .main::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            /* cover the whole box            */
-            background: url('docs/stars.gif') center / cover repeat;
-            filter: blur(6px);
-            /* adjust blur radius to taste    */
-            transform: scale(1.05);
-            /* hides the dark edges of blur   */
-            z-index: -1;
-            /* sit underneath the text        */
-            pointer-events: none;
-            /* clicks pass through            */
-        }
 
         .main {
             width: 830px;
-            max-width: 1000px;
-            margin: 20px 20px;
-            padding-top: 0px;
-            padding-right: 30px;
+            margin: 0 20px 0 0;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
             border-style: solid;
@@ -318,9 +301,7 @@
             max-width: 1000px;
             margin: 0 auto;
             text-shadow:
-                /* hard offset shadow (keeps pixel-art look) */
                 4px 4px 0 #7c0771ce,
-
                 /* glow layers – same hue, larger blur */
                 0 0 6px #e969ff,
                 /* near glow  */
@@ -330,8 +311,9 @@
         }
 
         .side.box {
-            width: 144px;
-            margin-top: 20px;
+            width: 160px;
+            /* explicit so nothing shrinks */
+            flex: 0 0 160px;
             font-family: "double";
             font-size: 20px;
             text-align: left;
@@ -342,9 +324,7 @@
             overflow: hidden;
             /* optional – hides overflow text    */
             text-overflow: ellipsis;
-            /* optional – adds “…”          */
             word-wrap: break-word;
-            /* keeps long words inside      */
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
             border-style: solid;
@@ -356,10 +336,10 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            /* margin-inline: auto; */
-            margin-left: 203px;
-            width: 1200px;
-            max-width: 1200px;
+            margin: 0 auto;
+            width: 1000px;
+            margin-bottom: 20px;
+            max-width: 1000px;
         }
 
 
