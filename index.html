@@ -356,11 +356,11 @@
         .sidebox {
             width: 180px;
             /* explicit so nothing shrinks */
-            flex: 0 0 160px;
+            flex: 0 0 460px;
             font-family: "double";
             font-size: 20px;
             text-align: left;
-            height: 327px;
+            /* height: 427px; */
             background-color: #000000db;
             overflow: hidden;
             /* optional – hides overflow text    */
@@ -370,6 +370,8 @@
             box-shadow: 0 0 6px #fff;
             border-style: solid;
             border-width: 2px;
+
+            padding-bottom: 20px;
 
         }
 
@@ -448,8 +450,29 @@
         }
 
         .sideMenu {
-            display: grid;
+            display: flex;
+            flex-direction: column;
 
+        }
+
+        .api1 {
+            width: 180px;
+            margin-top: 20px;
+            /* explicit so nothing shrinks */
+            flex: 0 0 160px;
+            font-family: "double";
+            font-size: 20px;
+            text-align: left;
+            height: 327px;
+            background-color: #000000db;
+            overflow: hidden;
+            /* optional – hides overflow text    */
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
+            border-style: solid;
+            border-width: 2px;
         }
     </style>
 </head>
@@ -562,7 +585,7 @@
             <div class="sideMenu">
                 <div class="sidebox">
                     <h2 class="sideTitle">
-                        Links!</h2>
+                        Links! </h2>
                     <ul class="link-list">
                         <li><a href="https://www.linkedin.com/in/catherine-lozano/" target="_blank"
                                 rel="noopener">LinkedIn</a>
@@ -572,6 +595,9 @@
                         <li><a href="https://www.youtube.com/@procatv4993" target="_blank" rel="noopener">YouTube</a>
                         </li>
                     </ul>
+                </div>
+                <div class="api1">
+                    <p> Api 1</p>
                 </div>
 
 
