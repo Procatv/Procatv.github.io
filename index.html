@@ -5,20 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Procatv </title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
-
     <style>
-        /* ─────────────────────────────────────────
-   📱  Phones & small tablets  (≤ 768 px)
-   ───────────────────────────────────────── */
-
-
-        /* ─────────────────────────────────────────
- 📱  Extra-small phones  (≤ 480 px)
- ───────────────────────────────────────── */
-
-
+        /* FONTS */
         @font-face {
             font-family: "perfect";
             src: url("docs/assets/fonts/Minecraft.woff2") format("woff2"),
@@ -47,75 +35,57 @@
 
         html {
             background: #000;
-            scroll-behavior: smooth;
+            height: 100%;
         }
 
         /* 2️⃣  content styling */
         body {
-            font-family: Verdana, Geneva, sans-serif;
-            color: #fff;
             position: relative;
-            /* required for layering */
-            overflow-x: hidden;
-            /* avoids horizontal scroll caused by the blurred edge */
+            min-height: 100vh;
         }
 
-        /* keep the whole layout at least 1200 px wide */
-        html,
-        body {
-            min-width: 1200px;
-            /* pick the width your design looks good at */
-            /* overflow-x: auto; */
-            /* let users scroll sideways if their screen is narrower */
-        }
-
-
-        /* 3️⃣  blurred background layer */
         body::before {
             content: "";
-            position: absolute;
+            /* position: absolute; */
+            position: fixed;
             inset: 0;
-            /* cover the whole box            */
-            background: url('docs/stars.gif') center / cover repeat;
+            background: url('docs/stars.gif');
+            background-position: top center;
+            background-size: cover;
+            background-attachment: scroll;
             filter: blur(6px);
-            /* adjust blur radius to taste    */
-            transform: scale(1.05);
-            /* hides the dark edges of blur   */
             z-index: -1;
-            /* sit underneath the text        */
             pointer-events: none;
-            /* clicks pass through            */
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+            width: 900px;
         }
 
         .logo {
             font-family: "nice", monospace;
             font-size: 80px;
-            margin: 0 auto;
             color: #ff07dac4;
-            /* inner fill */
-
-            /* solid 2-px outline */
-            /* -webkit-text-stroke: 2px #3035cd; */
-
-            /* --- SHADOW STACK --- */
-            text-shadow:
-                /* hard offset shadow (keeps pixel-art look) */
-                4px 4px 0 #7c0771ce,
-
-                /* glow layers – same hue, larger blur */
+            text-shadow: 4px 4px 0 #7c0771ce,
                 0 0 6px #e969ff,
-                /* near glow  */
                 0 0 12px #de4bff,
-                /* mid glow   */
                 0 0 18px #ffffff;
-            /* far glow   */
-
             letter-spacing: 3px;
             user-select: none;
+
+            /* changes ↓ */
+            /* shrink-wrap to the text */
+            margin: 0 auto;
+            /* now this truly centers the div */
+            text-align: center;
+            /* still needed if you keep the <p> */
         }
 
+
         .logo p {
-            margin: 0;
+            margin: 0 auto;
         }
 
         .main,
@@ -150,55 +120,16 @@
             color: white;
         }
 
-        /* CSS */
-
-        /* 1 — Solid bar */
-
-
-        .quick-links {
-            display: flex;
-            gap: 14px;
-        }
-
-        /* tweak the rule we added earlier */
-        .quick-links img {
-            /* pick one of these approaches: */
-            padding-top: 20px;
-            /* A — absolute pixel size */
-            width: 24px;
-            /* or 20‒32px, whatever looks right */
-            height: 24px;
-            /* keep them square */
-
-            /* B — match the line-height of the nav text
-       (≈ 1 em = current font size)  */
-            /* height: 1em;        comment out width: and let it auto-scale */
-
-            /* shared extras */
-            filter: drop-shadow(0 0 3px #fff);
-            cursor: pointer;
-            transition: transform .15s;
-        }
-
-        .quick-links img:hover {
-            transform: scale(1.1);
-        }
-
-
-        /* 5 — Glow / shadow on dark background */
         .divider.glow {
             border: none;
             height: 2px;
             width: 100%;
             background: #41356b;
             box-shadow: 0 0 6px #dbd1f0;
-            /* soft halo */
         }
 
-        /* 2️⃣  blurred star-field layer */
-
         .main {
-            width: 830px;
+            width: 680px;
             margin: 0 20px 0 0;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
@@ -210,25 +141,18 @@
         .main p {
             font-size: 18px;
             font-family: "double";
-
-            /* pick the size you want */
         }
 
-        /* or—if you only want the card headings larger */
         .main h2 {
-            font-family: "perfect";
+            font-family: "double";
             gap: 10px;
             font-size: 32px;
-            /* color: rgb(255, 255, 255);
-            text-shadow:
-                /* hard offset shadow (keeps pixel-art look) */
-
+            margin-left: 50px;
         }
 
         .title {
-            text-align: center;
             padding-right: 540px;
-            margin-bottom: 20px;
+            width: 300px;
             text-shadow:
                 /* hard offset shadow (keeps pixel-art look) */
                 4px 4px 0 #7c0771ce,
@@ -244,7 +168,7 @@
         .About {
             display: flex;
             align-items: flex-start;
-            padding: 0px 0px 25px 50px;
+            padding: 0px 0px 20px 20px;
             max-width: 1000px;
         }
 
@@ -259,7 +183,6 @@
             height: 200px;
             object-fit: cover;
             image-rendering: pixelated;
-
             border: 4px solid #ae51a0;
             outline: 2px solid #893ca8;
             border-color: rgb(42, 40, 40);
@@ -311,16 +234,14 @@
         }
 
         .side.box {
-            width: 160px;
+            width: 180px;
             /* explicit so nothing shrinks */
             flex: 0 0 160px;
             font-family: "double";
             font-size: 20px;
             text-align: left;
-            height: 365px;
+            height: 327px;
             background-color: #000000db;
-            /* 0 grow | 0 shrink | 160 px basis  */
-            /* or simply: width:160px;            */
             overflow: hidden;
             /* optional – hides overflow text    */
             text-overflow: ellipsis;
@@ -333,13 +254,7 @@
 
         /* unchanged centering row */
         .box-row {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            margin: 0 auto;
-            width: 1000px;
-            margin-bottom: 20px;
-            max-width: 1000px;
+            display: grid;
         }
 
 
@@ -350,11 +265,13 @@
 
         .blog {
             font-family: "double";
-            padding-left: 30px;
+            padding-left: 20px;
             padding-top: 5px;
             padding-bottom: 20px;
-            margin: 0 auto;
-            width: 1000px;
+            /* margin: 1px auto; */
+            margin-top: 20px;
+            box-sizing: border-box;
+            width: 680px;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
             border-style: solid;
@@ -419,6 +336,7 @@
         .sideTitle {
             text-align: center;
             font-family: "double";
+            color: white;
             text-shadow:
                 /* hard offset shadow (keeps pixel-art look) */
                 4px 4px 0 #7c0771ce,
@@ -431,37 +349,40 @@
                 0 0 18px #ebaedd;
         }
 
-        .dance-gif {
-            /* size */
-            width: 50px;
-            /* shrink as needed */
-            height: auto;
-            /* keep aspect-ratio */
+        .mainBox {
+            display: grid;
+        }
 
-            /* position */
-            position: absolute;
-            /* or fixed if you want it to stay on scroll   */
-            top: 34rem;
-            /* start 3 rem from the top                    */
-            right: 30rem;
-            /* and 2 rem in from the right edge            */
+        .sidebox {
+            width: 180px;
+            /* explicit so nothing shrinks */
+            flex: 0 0 160px;
+            font-family: "double";
+            font-size: 20px;
+            text-align: left;
+            height: 327px;
+            background-color: #000000db;
+            overflow: hidden;
+            /* optional – hides overflow text    */
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            border-color: rgb(42, 40, 40);
+            box-shadow: 0 0 6px #fff;
+            border-style: solid;
+            border-width: 2px;
 
-            /* polish */
-            pointer-events: none;
-            /* lets clicks pass through to links below     */
-            z-index: 50;
-            /* rides above background but under menus      */
         }
 
         .projBox {
-            max-width: 1000px;
+            width: 680px;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
             border-style: solid;
             border-width: 2px;
             padding-bottom: 20px;
             box-sizing: border-box;
-            margin: 30px auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
 
         }
 
@@ -491,14 +412,13 @@
         }
 
         .expBox {
+            width: 680px;
             font-family: "double";
-            max-width: 1000px;
             border-color: rgb(42, 40, 40);
             box-shadow: 0 0 6px #fff;
             border-style: solid;
             border-width: 2px;
             box-sizing: border-box;
-            margin: 0 auto;
 
         }
 
@@ -507,18 +427,6 @@
             max-width: 1000px;
             padding-bottom: 20px;
             margin: 0 auto;
-        }
-
-
-
-        /* all <h2> across the site */
-        h2 {
-            font-family: "perfect", monospace;
-            /* keep your custom font */
-            font-size: 28px;
-            letter-spacing: 2px;
-            /* 
-            ← space between letters */
         }
 
         .qf {
@@ -538,146 +446,148 @@
         th {
             letter-spacing: 2px;
         }
+
+        .sideMenu {
+            display: grid;
+
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <!-- <h1>Hi there!</h1> -->
-        <nav>
-            <ul>
-                <!-- Clicking this should navigate on the same page-->
-
-            </ul>
-        </nav>
-
-
-    </header>
-    <!-- <hr class="divider glow"> -->
-    <header>
+    <div class="mainBox">
         <div class="logo">
             <p> Procatv! </p>
         </div>
-    </header>
 
-    <section class="box-row">
-        <div class="main box">
-            <div class="title">
-                <h2>About Me</h2>
-            </div>
-            <!-- Flex container for profile and skills -->
-            <div class="About">
-                <div class="profile">
-                    <img class="headshot" src="docs/pixelHead.png" data-hover="docs/headshot.JPG"
-                        alt="Catherine head-shot">
+        <div class="container"> <!-- Overall box -->
+            <div class="box-row"> <!-- main box on left-->
+                <div class="main box">
+                    <div class="title">
+                        <h2>About Me</h2>
+                    </div>
+                    <!-- Flex container for profile and skills -->
+                    <div class="About">
+                        <div class="profile">
+                            <img class="headshot" src="docs/pixelHead.png" data-hover="docs/headshot.JPG"
+                                alt="Catherine head-shot">
 
-                    <div class="profile-text">
-                        <h2>I'm Catherine Lozano</h2>
-                        <p>
-                            I'm a Computer Science student passionate about backend development and software
-                            engineering.
-                            Welcome to my portfolio website!
-                        </p>
-                        <div class="qf">
-                            <p></p> Quick Facts </p>
+                            <div class="profile-text">
+                                <p>I'm Catherine Lozano</p>
+                                <p>
+                                    I'm a Computer Science student passionate about backend development and software
+                                    engineering.
+                                    Welcome to my portfolio website!
+                                </p>
+                                <div class="qf">
+                                    <p></p> Quick Facts </p>
+                                </div>
+                                <p> Based in Los Angeles, CA </p>
+                                <p> </p>
+
+                            </div>
+
+
                         </div>
-                        <p> Based in Los Angeles, CA </p>
-                        <p> </p>
+                    </div>
 
+                    <!-- <img src="docs/dance.gif" alt="pixel dance animation" class="dance-gif"> -->
+
+                </div>
+
+
+                <div class="blog">
+                    <h2> Blog </h2>
+                    <p> Post #1 </p>
+                </div>
+
+                <!-- Resume In Detail + images -->
+                <!-- Need to add more detail-->
+
+                <div class="projBox">
+                    <div class="projects">
+                        <h2> Projects</h2>
+                    </div>
+
+                    <div class="projContent">
+                        <ul class="project-list">
+                            <li>Website</li>
+                            <li>Website</li>
+                            <li>Website</li>
+                            <li>Website</li>
+                        </ul>
                     </div>
 
 
                 </div>
-            </div>
 
-            <!-- <img src="docs/dance.gif" alt="pixel dance animation" class="dance-gif"> -->
+                <div class="expBox" id="expBox">
+                    <div class="titlexp">
+                        <h2> Experiences</h2>
+                    </div>
 
+                    <div class="exp">
+                        <ul class="job-list">
+                            <li>
+                                <h3>IBM Research</h3>
+                                <p>Qiskit Backend Software Developer</p>
+                            </li>
+
+                            <li>
+                                <h3>IBM Research</h3>
+                                <p>Qiskit Backend Software Developer</p>
+                            </li>
+
+                            <li>
+                                <h3>JPL</h3>
+                                <p>Project Support Office Software Developer</p>
+                            </li>
+
+                            <li>
+                                <h3>Quantum Foundry UCSB</h3>
+                                <p>Software Developer</p>
+                            </li>
+
+                            <li>
+                                <h3>Foley &amp; Lardner LLP</h3>
+                                <p>Administrative Assistant</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> <!-- left side -->
+
+            <!-- side container on right -->
+            <div class="sideMenu">
+                <div class="sidebox">
+                    <h2 class="sideTitle">
+                        Links!</h2>
+                    <ul class="link-list">
+                        <li><a href="https://www.linkedin.com/in/catherine-lozano/" target="_blank"
+                                rel="noopener">LinkedIn</a>
+                        </li>
+                        <li><a href="https://github.com/Procatv" target="_blank" rel="noopener">GitHub</a></li>
+
+                        <li><a href="https://www.youtube.com/@procatv4993" target="_blank" rel="noopener">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+            </div> <!-- container -->
         </div>
-        <div class="side box">
-            <h2 class="sideTitle">
-                Links!</h2>
-            <ul class="link-list">
-                <li><a href="https://www.linkedin.com/in/catherine-lozano/" target="_blank" rel="noopener">LinkedIn</a>
-                </li>
-                <li><a href="https://github.com/Procatv" target="_blank" rel="noopener">GitHub</a></li>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const pic = document.querySelector('.headshot');
+                const original = pic.src;
+                const hover = pic.dataset.hover;
 
-                <li><a href="https://www.youtube.com/@procatv4993" target="_blank" rel="noopener">YouTube</a></li>
-            </ul>
-    </section>
-
-
-    <div class="blog">
-        <h2> Blog </h2>
-        <p> Post #1 </p>
-    </div>
-
-    <!-- Resume In Detail + images -->
-    <!-- Need to add more detail-->
-
-    <div class="projBox">
-        <div class="projects">
-            <h2> Projects</h2>
-        </div>
-
-        <div class="projContent">
-            <ul class="project-list">
-                <li>Website</li>
-                <li>Website</li>
-                <li>Website</li>
-                <li>Website</li>
-            </ul>
-        </div>
-
-
-    </div>
-
-    <div class="expBox" id="expBox">
-        <div class="titlexp">
-            <h2> Experiences</h2>
-        </div>
-
-        <div class="exp">
-            <ul class="job-list">
-                <li>
-                    <h3>IBM Research</h3>
-                    <p>Qiskit Backend Software Developer</p>
-                </li>
-
-                <li>
-                    <h3>IBM Research</h3>
-                    <p>Qiskit Backend Software Developer</p>
-                </li>
-
-                <li>
-                    <h3>JPL</h3>
-                    <p>Project Support Office Software Developer</p>
-                </li>
-
-                <li>
-                    <h3>Quantum Foundry UCSB</h3>
-                    <p>Software Developer</p>
-                </li>
-
-                <li>
-                    <h3>Foley &amp; Lardner LLP</h3>
-                    <p>Administrative Assistant</p>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pic = document.querySelector('.headshot');
-            const original = pic.src;
-            const hover = pic.dataset.hover;
-
-            pic.addEventListener('mouseenter', () => pic.src = hover);
-            pic.addEventListener('mouseleave', () => pic.src = original);
-        });
-    </script>
+                pic.addEventListener('mouseenter', () => pic.src = hover);
+                pic.addEventListener('mouseleave', () => pic.src = original);
+            });
+        </script>
 </body>
 
 </html>
