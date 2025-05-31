@@ -635,16 +635,27 @@
 
         <script>
             const apiKey = "ri9S5b7Y7jEnH9UWHwAuNCzeK1jNpK7Le2hoADUh";
-            const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+            const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('apod-image').src = data.url;
-                    document.getElementById('apod-title').textContent = data.title;
-                    document.getElementById('apod-desc').textContent = data.explanation;
-                })
-                .catch(error => console.error("Error fetching APOD:", error));
+            const cachedDate = localStorage.getItem("apod-date");
+            const cachedData = localStorage.getItem("apod-data");
+
+            if (cachedDate === today && cachedData) {
+                const data = JSON.parse(cachedData);
+                document.getElementById('apod-image').src = data.url;
+                document.getElementById('apod-title').textContent = data.title;
+            } else {
+                fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem("apod-date", today);
+                        localStorage.setItem("apod-data", JSON.stringify(data));
+                        document.getElementById('apod-image').src = data.url;
+                        document.getElementById('apod-title').textContent = data.title;
+                    })
+                    .catch(err => console.error("APOD fetch error:", err));
+            }
+
         </script>
 </body>
 
